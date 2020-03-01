@@ -16,3 +16,18 @@ SQL Sorgusu
 --
 --UPDATE Takvim SET YARIS_1=NULL WHERE DayOfWeekUK=3 or DayOfWeekUK=7
 UPDATE Takvim SET YARIS_1=1 WHERE (DayOfWeekUK=3 or DayOfWeekUK=7) and (DATE BETWEEN '2020-01-01' AND '2020-01-31')
+
+https://stackoverflow.com/questions/51669022/change-the-text-of-a-label-which-has-been-created-programmatically-in-c/51669075
+
+Çok sayıda Etiketiniz varsa, Etiket oluştururken bu nesneleri bir dizide saklayabilirsiniz ve bu metni değiştirmeniz gerektiğinde beğenirsiniz
+
+Label[] labelsArray //declare globally
+private void labelTextChange()
+{
+    // Get Label objects from array
+    labelsArray = { label1, label2, label3, label4, label5 };
+    for (int i = 0; i < labelsArray.Count(); i++)
+    {
+        labelsArray[i].Text = "Hello.. " + (i + 1).ToString();
+    }
+}
