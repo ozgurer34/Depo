@@ -1,0 +1,25 @@
+            if (String.IsNullOrEmpty((string)label7.Text))
+            {
+                p7.Text = "";
+                p72.Text = "";
+            }
+            else
+            {
+                baglanti.Open();
+                string tarih, yýlým, ayým, gunum;
+                yýlým = YIL.ToString();
+                ayým = m.ToString();
+                gunum = label7.Text;
+                tarih = yýlým + '-' + ayým + '-' + gunum;
+                lblTarih.Text = tarih.ToString();
+                List<string> sehir = new List<string>();
+                SqlCommand kosu = new SqlCommand("SELECT Þehir FROM Kosu where Tarih='" + tarih + "' GROUP BY Tarih,Þehir", baglanti);
+                SqlDataReader dr = kosu.ExecuteReader();
+                while (dr.Read())
+                {
+                    sehir.Add(dr[0].ToString());
+                }
+                baglanti.Close();
+                p7.Text = sehir[0];
+                p72.Text = sehir[1];
+            }
